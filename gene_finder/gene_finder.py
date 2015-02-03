@@ -10,6 +10,7 @@ Created on Sun Feb  2 11:24:42 2014
 from amino_acids import aa, codons, aa_table
 import random
 from load import load_seq
+dna = load_seq("./data/X73525.fa")
 
 def shuffle_string(s):
     """ Shuffles the characters in the input string
@@ -173,8 +174,32 @@ def longest_ORF(dna):
     >>> longest_ORF("ATGCGAATGTAGCATCAAA")
     'ATGCTACATTCGCAT'
     """
-    # TODO: implement this
-    pass
+    '''
+    lengths = []
+    list_of_orfs = find_all_ORFs_both_strands(dna)
+
+    number_of_orf = len(list_of_orfs)
+    
+    for i in range (0, number_of_orf):
+        print 'IM IN THE LOOP!!!!!!!!!!!'
+        length = len(list_of_orfs[i])
+        lengths.append(length)
+    print lengths
+
+    max_value = max(lengths)
+
+    index_max = lengths.index(max_value)
+    #need to get get the index number of the max of the list
+
+
+    return list_of_orfs[index_max]'''
+
+
+
+
+    ORFs = find_all_ORFs_both_strands(dna)
+    return max(ORFs,key=len)
+
 
 
 def longest_ORF_noncoding(dna, num_trials):
@@ -184,8 +209,26 @@ def longest_ORF_noncoding(dna, num_trials):
         dna: a DNA sequence
         num_trials: the number of random shuffles
         returns: the maximum length longest ORF """
-    # TODO: implement this
-    pass
+
+    lengths = []
+
+
+    for i in range (0,num_trials):
+        shuffle = shuffle_string(dna)
+        length = len(longest_ORF(shuffle))
+        lengths.append(length)
+
+
+    max_value = max(lengths)
+
+
+    return max_value
+
+
+
+
+
+    
 
 def coding_strand_to_AA(dna):
     """ Computes the Protein encoded by a sequence of DNA.  This function
@@ -201,8 +244,16 @@ def coding_strand_to_AA(dna):
         >>> coding_strand_to_AA("ATGCCCGCTTT")
         'MPA'
     """
-    # TODO: implement this
-    pass
+    protein = ''
+    i = 0
+    while i < (len(dna)-2):
+        codon = dna[i:i+3]    
+        amino_acid = aa_table[codon]
+        protein= protein + amino_acid
+        i += 3
+
+    return protein
+
 
 def gene_finder(dna, threshold):
     """ Returns the amino acid sequences coded by all genes that have an ORF
@@ -214,16 +265,38 @@ def gene_finder(dna, threshold):
         returns: a list of all amino acid sequences whose ORFs meet the minimum
                  length specified.
     """
-    # TODO: implement this
-    pass
+    threshold = longest_ORF_noncoding(dna,1500)
+    print threshold
+    all_orfs = find_all_ORFs_both_strands(dna)
+    all_orfs_long = []
+
+    #this makes a list of strings of dna that are longer than the threshold
+
+    for i in range (0, len(all_orfs)):
+        if len(all_orfs[i]) > threshold:
+            all_orfs_long.append(all_orfs[i])
+
+    #this takes each dna string in a list and converts it to an amino acid sequence
+
+    aa_list = []
+
+    for i in range (0, len(all_orfs_long)):
+        aa_strand = coding_strand_to_AA(all_orfs_long[i])
+        aa_list.append(aa_strand)
+
+    return aa_list
+
 
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
 
-print get_complement('A')
-print get_complement('C')
-print get_reverse_complement('ATGCGGT')
-print rest_of_ORF("ATGAGATAGG")
-print find_all_ORFs_oneframe("ATGCATGAATGTAGATAGATGTGCCC")
-print find_all_ORFs_both_strands("ATGCGAATGTAGCATCAAA")
+#print get_complement('A')
+#print get_complement('C')
+#print get_reverse_complement('ATGCGGT')
+#print rest_of_ORF("ATGAGATAGG")
+#print find_all_ORFs_oneframe("ATGCATGAATGTAGATAGATGTGCCC")
+#print find_all_ORFs_both_strands("ATGCGAATGTAGCATCAAA")
+print gene_finder(dna,1)
+#print longest_ORF_noncoding("ATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAAATGCGAATGTAGCATCAAA",100)
+#print gene_finder('CCTATCAACTAAAATGTTGAAGTATGAAGAGCGGAAGCTGAATAATCTGACCTTGTCGTCGTTCTCCAAGGTCGGTGTTTCAAACGATGCTAGATTGTATATTGCCAAAGAAAACACTGACAAGGCATACGTCGCGCCGGAAAAGTTTTCAAGCAAAGTCCTCACCTGGCTCGGTAAGATGCCTCTTTTTAAGAATACAGAGGTCGTCCAAAAACATACTGAAAACATACGAGTCCAAGATCAGAAAATTTTGCAGACTTTCCTACATGCTCTTACTGAGAAATACGGGGAGACTGCTGTGAACGACGCACTACTAATGTCCCGGATAAATATGAACAAACCACTCACACAAAGGTTGGCCGTTCAGATAACTGAGTGTGTAAAAGCCGCCGATGAGGGCTTCATCAACCTAATCAAGAGCAAGGACAACGTCGGAGTAAGAAACGCTGCCTTAGTAATTAAGGGTGGGGATACTAAAGTGGCGGAAAAAAACAACGACGTCGGGGCAGAGTCCAAGCAACCTCTTTTAGATATAGCACTGAAGGGTCTGAAGAGGACACTCCCTCAATTAGAGCAGATGGACGGGAATAGTCTAAGGGAAAACTTTCAAGAAATGGCTTCCGGCAATGGGCCTCTCCGTTCCTTGATGACGAATCTGCAGAACTTAAATAAGATTCCTGAGGCTAAACAGTTAAACGACTACGTTACGACCTTAACAAATATACAAGTAGGTGTCGCGCGCTTTAGTCAATGGGGCACATGTGGGGGAGAGGTCGAACGCTGGGTAGATAAAGCTAGTACCCACGAGCTCACCCAAGCAGTCAAAAAGATCCATGTGATTGCGAAGGAACTAAAGAACGTTACTGCTGAATTGGAAAAAATCGAGGCAGGGGCGCCGATGCCGCAAACAATGTCGGGTCCCACGTTAGGTCTGGCACGGTTCGCGGTCAGCTCAATACCCATCAACCAGCAAACCCAAGTCAAATTATCGGACGGGATGCCAGTTCCCGTTAATACATTAACCTTCGACGGGAAACCCGTGGCACTGGCTGGGAGCTACCCTAAGAACACTCCCGACGCACTGGAGGCTCACATGAAGATGCTGCTCGAAAAGGAATGCTCGTGCCTGGTAGTTCTTACGTCAGAAGATCAGATGCAAGCCAAGCAATTGCCACCGTACTTTCGTGGGAGCTACACCTTCGGTGAGGTGCACACCAATTCACAGAAGGTGTCATCTGCATCGCAAGGGGAGGCCATTGATCAGTACAATATGCAGTTATCCTGCGGCGAGAAAAGGTACACCATACCCGTACTCCACGTAAAAAACTGGCCCGATCATCAGCCCCTCCCGAGTACGGATCAACTCGAATATTTGGCAGACAGGGTAAAAAATAGCAATCAAAATGGTGCCCCCGGACGCTCCTCTTCGGATAAGCACCTGCCAATGATTCATTGCCTGGGAGGCGTCGGAAGAACGGGAACCATGGCAGCGGCCCTGGTCTTAAAGGACAATCCGCACAGTAATCTAGAGCAGGTGCGAGCAGATTTCAGAGATTCTCGTAACAACCGCATGTTGGAAGATGCATCCCAGTTCGTTCAGTTGAAGGCGATGCAAGCGCAACTTCTGATGACTACTGCGAGCTGATGGCCCCGGTGTATGCCAGTAC',1)
