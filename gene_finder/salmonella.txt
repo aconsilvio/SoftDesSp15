@@ -1,3 +1,6 @@
+Annabel Consilvio
+Gene Finder Analysis
+
 ['MGIFASAGCGKTMLMHMLIEQTEADVFVIGLIGERGREVTEFVDMLRASHKKEKCVLVFATSDFPSVDRCNAAQLATTVAEYFRDQGKRVVLFIDSMTRYARALRDVALASGERPARRGYPASVFDNLPRLLERPGATSEGSITAFYTVLLESEEEADPMADEIRSILDGHLYLSRKLAGQGHYPAIDVLKSVSRVFGQVTTPTHAEQASAVRKLMTRLEELQLFIDLGEYRPGENIDNDRAMQMRDSLKAWLCQPVAQYSSFDDTLSGMNAFADQN',   
 ATP synthase
 
@@ -14,7 +17,7 @@ type III secretion system protein SpaS [Salmonella enterica]
 type III secretion system protein SpaR [Salmonella enterica] 
 
 
-All of these proteins are coded for in the Slalmonella DNA sequence.  Many of these proteins are also in E coli, which makes sense because both are prokaryotes.  Horizontal gene transfer can happen easily in procrayotes, so naturally the proteins that allow for this may be in the similar in both bodies.  Additionally, most of the proteins code for T3SS proteins, which are the mechanisms responsible for infecting eukaryotic cells in host beings (like humans).  These exists in salmonella and other bacteria that infect this hosts, which also explains why there are similar proteins in E coli.
+All of these proteins are coded for in the Salmonella DNA sequence.  Many of these proteins are also in E coli, which makes sense because both are prokaryotes.  Horizontal gene transfer can happen easily in procrayotes, so naturally the proteins that allow for this may be in the similar in both bodies.  Additionally, most of the proteins code for T3SS proteins, which are the mechanisms responsible for infecting eukaryotic cells in host beings (like humans).  These exists in salmonella and other bacteria that infect this hosts, which also explains why there are similar proteins in E coli.
 
 
 
