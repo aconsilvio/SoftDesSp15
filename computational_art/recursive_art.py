@@ -19,19 +19,19 @@ def build_random_function(min_depth, max_depth):
     #call bjuild random inside build random
     #have it go one smaller at depth
     #if statement to return 
-    functions = ["sin_pi","cos_pi","avg","prod", "x","y"]
+    functions = ["sin_pi","cos_pi","avg","prod", "sqrt","abs","cubed","x","x/2","y"]
 
     if min_depth > 0 and max_depth > 0:
-        function = functions[random.randint(0,3)]
+        function = functions[random.randint(0,6)]
     if min_depth <= 0 and max_depth > 0:
-        function = functions[random.randint(0,5)]
+        function = functions[random.randint(0,9)]
     if min_depth < 0 and max_depth <= 0:
-        function = functions[random.randint(4,5)]
+        function = functions[random.randint(6,9)]
 
 
     if function == "avg" or function == "prod":
         lista = [function, build_random_function(min_depth-1, max_depth-1), build_random_function(min_depth-1, max_depth-1)]
-    elif function == "x" or function =="y":
+    elif function == "x" or function =="y" or function == "x/2":
         lista = [function]
     else:
         lista = [function, build_random_function(min_depth-1, max_depth-1)]
@@ -81,10 +81,18 @@ def evaluate_random_function(f, x, y):
         return x
     if f[0] == "y":
         return y
+    if f[0] == "x/2":
+        return x/2
     if f[0] == "sin_pi":
         return math.sin(math.pi * evaluate_random_function(f[1:][0], x, y))
+    if f[0] == "abs":
+        return  abs(evaluate_random_function(f[1:][0], x, y))
+    if f[0] == "sqrt":
+        return  math.sqrt(abs(evaluate_random_function(f[1:][0], x, y)))
     if f[0] == "cos_pi":
         return math.cos(math.pi * evaluate_random_function(f[1:][0],  x, y))
+    if f[0] == "cubed":
+        return evaluate_random_function(f[1:][0],  x, y) ** 3
     if f[0] == "avg":
         return .5 * (evaluate_random_function(f[1], x, y) + evaluate_random_function(f[2], x, y))
     if f[0] == "prod":
@@ -202,7 +210,7 @@ if __name__ == '__main__':
     # Create some computational art!
     # TODO: Un-comment the generate_art function call after you
     #       implement remap_interval and evaluate_random_function
-    generate_art("myart19.png")
+    generate_art("myart69.png")
 
     # Test that PIL is installed correctly
     # TODO: Comment or remove this function call after testing PIL install
