@@ -3,6 +3,8 @@
 import random
 import math
 from PIL import Image
+import datetime
+import time
 
 
 def build_random_function(min_depth, max_depth):
@@ -38,8 +40,6 @@ def build_random_function(min_depth, max_depth):
 
 
     return lista 
-
-print build_random_function(7,9) 
     
 
 
@@ -57,32 +57,15 @@ def evaluate_random_function(f, x, y):
         >>> evaluate_random_function(["y"],0.1,0.02)
         0.02
     """
-    #if list has one element, return x and y
-    #if list has two elements, return sin or cos
-    #if list has three elements, return avg or product
-
-    # if len(f) == 1:
-    #     if f == ["x"]:
-    #         return x
-    #     elif f == ["y"]:
-    #         return y
-    # if len(f) == 2:
-    #     if f == ["sin_pi"]:
-    #         return sin(pi * evaluate_random_function(f,x,y))
-    #     elif f == ["cos_pi"]:
-    #         return cos(pi * evaluate_random_function(f,x,y))
-    # if len(f) == 3:
-    #     if f == ["avg"]:
-    #         return 0.5 * (evaluate_random_function(f,x,y) + evaluate_random_function(f,x,y))
-    #     if f == ["prod"]:
-    #         return evaluate_random_function(f,x,y) * evaluate_random_function(f,x,y)
-
+    #if the first element of the list is one of the base cases x, y, or x/2 return x, y, or x/2
     if f[0] == "x":
         return x
     if f[0] == "y":
         return y
     if f[0] == "x/2":
         return x/2
+    #if the first element of the inital list is a function that only takes in one input, apply the specified
+    #operation to the first element of the list that begins after the first element
     if f[0] == "sin_pi":
         return math.sin(math.pi * evaluate_random_function(f[1:][0], x, y))
     if f[0] == "abs":
@@ -183,9 +166,10 @@ def generate_art(filename, x_size=350, y_size=350):
         x_size, y_size: optional args to set image dimensions (default: 350)
     """
     # Functions for red, green, and blue channels - where the magic happens!
-    red_function = build_random_function(7,9) 
-    green_function = build_random_function(7,9) 
-    blue_function = build_random_function(7,9) 
+    #also generates a random integer for depth for each function
+    red_function = build_random_function(random.randint(6,9),random.randint(10,14)) 
+    green_function = build_random_function(random.randint(6,9),random.randint(10,14)) 
+    blue_function = build_random_function(random.randint(6,9),random.randint(10,14)) 
 
     # Create image and loop over all pixels
     im = Image.new("RGB", (x_size, y_size))
@@ -206,11 +190,17 @@ def generate_art(filename, x_size=350, y_size=350):
 if __name__ == '__main__':
     import doctest
     doctest.testmod()
+    #automaticlly names the files based on the date and time
+    n = time.time()
+    a = 'myart_'
+    b = str(n)
+
+    title = a+b
 
     # Create some computational art!
     # TODO: Un-comment the generate_art function call after you
     #       implement remap_interval and evaluate_random_function
-    generate_art("myart69.png")
+    generate_art("artpics/"+title+".png")
 
     # Test that PIL is installed correctly
     # TODO: Comment or remove this function call after testing PIL install
