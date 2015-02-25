@@ -3,11 +3,15 @@ Essentially, it will show how happy people were in a given year.
 The Gutenberg book needs to include the published date early in the text for this program to work."""
 import pattern
 import string
+from pattern.web import *
 from pattern.en import sentiment
 from pattern.en import positive
 import matplotlib.pyplot as plt
 import os, sys
+import numpy as np
+import pickle
 
+# Save data to a file (will be part of your data fetching script)
 
 
 def get_files(path):
@@ -94,6 +98,8 @@ def make_plot(file_list):
 	D = make_dictionary(file_list)
 	for book in file_list:
 		plt.plot(D.get(book)[0:1], D.get(book)[1][0]*100,'o-')
+	
+
 	plt.xlabel('year published')
 	plt.ylabel('relative happiness')
 	plt.title('Relative Happiness Over Years Based on Most Popular 30 Books In Gutenberg Project', fontsize=18)
