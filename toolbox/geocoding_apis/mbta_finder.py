@@ -10,6 +10,7 @@ https://sites.google.com/site/sd15spring/home/project-toolbox/geocoding-and-web-
 import urllib   # urlencode function
 import urllib2  # urlopen function (better than urllib version)
 import json
+from pprint import pprint
 
 
 # Useful URLs (you need to add the appropriate parameters for your requests)
@@ -25,7 +26,10 @@ def get_json(url):
     Given a properly formatted URL for a JSON web API request, return
     a Python JSON object containing the response to that request.
     """
-    pass
+    f = urllib2.urlopen(url)
+    response_text = f.read()
+    response_data = json.loads(response_text)
+    return response_data
 
 
 def get_lat_long(place_name):
@@ -36,7 +40,12 @@ def get_lat_long(place_name):
     See https://developers.google.com/maps/documentation/geocoding/
     for Google Maps Geocode API URL formatting requirements.
     """
-    pass
+    new_place = place_name.replace(' ', "+")
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + new_place + "&key=AIzaSyAqswAJZEulRtIHPvMpyCEYMT8XpU8uCM4" 
+    json = get_json(url)
+    results = json["results"][0]['geometry']['bounds']['northeast']    
+    lat_long = results['lat'],results['lng']
+    return lat_long #tuple
 
 
 def get_nearest_station(latitude, longitude):
@@ -47,7 +56,9 @@ def get_nearest_station(latitude, longitude):
     See http://realtime.mbta.com/Portal/Home/Documents for URL
     formatting requirements for the 'stopsbylocation' API.
     """
-    pass
+    
+
+get_lat_long('32 Stone St, Auburn MA')
 
 
 def find_stop_near(place_name):
