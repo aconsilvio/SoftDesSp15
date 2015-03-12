@@ -3,6 +3,16 @@ README
 Ethnic Food Visualization
 Annabel Consilvio and Hannah Fowler
 
+
+------------
+TO RUN
+------------
+In terminal:
+	python ethnic_food_visualization.py
+
+This will filter and plot data.
+
+
 ------------
 SET-UP
 ------------
