@@ -6,6 +6,7 @@ import string
 from pattern.web import *
 from pattern.en import sentiment
 from pattern.en import positive
+import matplotlib
 import matplotlib.pyplot as plt
 import os, sys
 import numpy as np

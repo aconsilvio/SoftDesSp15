@@ -1,0 +1,176 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', '-g', 'floomatic' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 silly cache add args [ 'floomatic', null ]
+5 verbose cache add spec floomatic
+6 silly cache add parsed spec { raw: 'floomatic',
+6 silly cache add   scope: null,
+6 silly cache add   name: 'floomatic',
+6 silly cache add   rawSpec: '',
+6 silly cache add   spec: '*',
+6 silly cache add   type: 'range' }
+7 verbose addNamed floomatic@*
+8 silly addNamed semver.valid null
+9 silly addNamed semver.validRange *
+10 silly addNameRange { name: 'floomatic', range: '*', hasData: false }
+11 silly mapToRegistry name floomatic
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry uri https://registry.npmjs.org/floomatic
+15 verbose addNameRange registry:https://registry.npmjs.org/floomatic not in flight; fetching
+16 verbose request uri https://registry.npmjs.org/floomatic
+17 verbose request no auth needed
+18 info attempt registry request try #1 at 4:25:48 PM
+19 verbose request id efda02fea31f235c
+20 http request GET https://registry.npmjs.org/floomatic
+21 http 200 https://registry.npmjs.org/floomatic
+22 silly get cb [ 200,
+22 silly get   { date: 'Thu, 26 Feb 2015 21:25:50 GMT',
+22 silly get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+22 silly get     etag: '"8IB1HYJNCVZKF1IX5H89UITKR"',
+22 silly get     'content-type': 'application/json',
+22 silly get     'cache-control': 'max-age=60',
+22 silly get     'content-length': '38260',
+22 silly get     'accept-ranges': 'bytes',
+22 silly get     via: '1.1 varnish',
+22 silly get     age: '0',
+22 silly get     'x-served-by': 'cache-atl6230-ATL',
+22 silly get     'x-cache': 'MISS',
+22 silly get     'x-cache-hits': '0',
+22 silly get     'x-timer': 'S1424985950.083456,VS0,VE148',
+22 silly get     vary: 'Accept',
+22 silly get     'keep-alive': 'timeout=10, max=50',
+22 silly get     connection: 'Keep-Alive' } ]
+23 verbose get saving floomatic to /Users/annabelconsilvio/.npm/registry.npmjs.org/floomatic/.cache.json
+24 silly addNameRange number 2 { name: 'floomatic', range: '*', hasData: true }
+25 silly addNameRange versions [ 'floomatic',
+25 silly addNameRange   [ '0.2.3',
+25 silly addNameRange     '0.2.4',
+25 silly addNameRange     '0.2.5',
+25 silly addNameRange     '0.2.6',
+25 silly addNameRange     '0.2.7',
+25 silly addNameRange     '0.2.8',
+25 silly addNameRange     '0.2.9',
+25 silly addNameRange     '0.2.10',
+25 silly addNameRange     '0.2.11',
+25 silly addNameRange     '0.2.12',
+25 silly addNameRange     '0.2.13',
+25 silly addNameRange     '0.2.14',
+25 silly addNameRange     '0.3.0',
+25 silly addNameRange     '0.3.1',
+25 silly addNameRange     '0.3.2',
+25 silly addNameRange     '0.3.3',
+25 silly addNameRange     '0.4.0',
+25 silly addNameRange     '0.4.1',
+25 silly addNameRange     '0.4.2',
+25 silly addNameRange     '0.4.3',
+25 silly addNameRange     '0.4.4',
+25 silly addNameRange     '0.4.5',
+25 silly addNameRange     '0.4.6',
+25 silly addNameRange     '0.4.7' ] ]
+26 verbose addNamed floomatic@0.4.7
+27 silly addNamed semver.valid 0.4.7
+28 silly addNamed semver.validRange 0.4.7
+29 silly mapToRegistry name floomatic
+30 silly mapToRegistry using default registry
+31 silly mapToRegistry registry https://registry.npmjs.org/
+32 silly mapToRegistry uri https://registry.npmjs.org/floomatic
+33 verbose addRemoteTarball https://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz not in flight; adding
+34 verbose addRemoteTarball [ 'https://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz',
+34 verbose addRemoteTarball   '9b239d8428fbf5c7fb7f821c2c3b3dd9a5860dcc' ]
+35 info retry fetch attempt 1 at 4:25:49 PM
+36 info attempt registry request try #1 at 4:25:49 PM
+37 http fetch GET https://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz
+38 http fetch 200 https://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz
+39 silly fetchAndShaCheck shasum 9b239d8428fbf5c7fb7f821c2c3b3dd9a5860dcc
+40 verbose addTmpTarball /var/folders/2d/scw6bfrn3k7ftvxys4kjw2400000gn/T/npm-21005-d5fb0fdd/registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz not in flight; adding
+41 verbose addTmpTarball already have metadata; skipping unpack for floomatic@0.4.7
+42 silly cache afterAdd floomatic@0.4.7
+43 verbose afterAdd /Users/annabelconsilvio/.npm/floomatic/0.4.7/package/package.json not in flight; writing
+44 verbose afterAdd /Users/annabelconsilvio/.npm/floomatic/0.4.7/package/package.json written
+45 silly install resolved [ { name: 'floomatic',
+45 silly install resolved     homepage: 'https://github.com/Floobits/floomatic/',
+45 silly install resolved     repository: { type: 'git', url: 'git://github.com:Floobits/floomatic.git' },
+45 silly install resolved     contributors: [ [Object], [Object] ],
+45 silly install resolved     version: '0.4.7',
+45 silly install resolved     optionalDependencies: { fsevents: '>=0.1.5', 'native-diff-match-patch': '>=0.0.4' },
+45 silly install resolved     dependencies:
+45 silly install resolved      { async: '0.9.x',
+45 silly install resolved        diff_match_patch: '0.1.x',
+45 silly install resolved        floorine: '0.2.x',
+45 silly install resolved        lodash: '2.4.x',
+45 silly install resolved        minimatch: '2.x',
+45 silly install resolved        mkdirp: '0.5.x',
+45 silly install resolved        open: '0.x',
+45 silly install resolved        optimist: '0.6.x',
+45 silly install resolved        request: '2.x',
+45 silly install resolved        fsevents: '>=0.1.5',
+45 silly install resolved        'native-diff-match-patch': '>=0.0.4' },
+45 silly install resolved     engines: { node: '>=0.10.0' },
+45 silly install resolved     preferGlobal: true,
+45 silly install resolved     bin: { floomatic: './bin/floomatic' },
+45 silly install resolved     directories: { lib: './lib' },
+45 silly install resolved     scripts: { start: './bin/floomatic' },
+45 silly install resolved     bugs: { url: 'https://github.com/Floobits/floomatic/issues' },
+45 silly install resolved     licenses: [ [Object] ],
+45 silly install resolved     gitHead: '614ef7381287563c659da07b397284d79904e92a',
+45 silly install resolved     description: 'A headless [Floobits](https://floobits.com/) workspace and disk watcher. Handy for shipping changes to a testing server.',
+45 silly install resolved     _id: 'floomatic@0.4.7',
+45 silly install resolved     _shasum: '9b239d8428fbf5c7fb7f821c2c3b3dd9a5860dcc',
+45 silly install resolved     _from: 'floomatic@*',
+45 silly install resolved     _npmVersion: '2.1.18',
+45 silly install resolved     _nodeVersion: '0.10.35',
+45 silly install resolved     _npmUser: { name: 'ggreer', email: 'angryparsley@gmail.com' },
+45 silly install resolved     maintainers: [ [Object], [Object] ],
+45 silly install resolved     dist:
+45 silly install resolved      { shasum: '9b239d8428fbf5c7fb7f821c2c3b3dd9a5860dcc',
+45 silly install resolved        tarball: 'http://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz' },
+45 silly install resolved     _resolved: 'https://registry.npmjs.org/floomatic/-/floomatic-0.4.7.tgz' } ]
+46 info install floomatic@0.4.7 into /usr/local/lib
+47 info installOne floomatic@0.4.7
+48 verbose installOne of floomatic to /usr/local/lib not in flight; installing
+49 verbose lock using /Users/annabelconsilvio/.npm/_locks/floomatic-b4607c870c9ee6da.lock for /usr/local/lib/node_modules/floomatic
+50 silly install write writing floomatic 0.4.7 to /usr/local/lib/node_modules/floomatic
+51 silly cache addNamed cb floomatic@0.4.7
+52 verbose unbuild lib/node_modules/floomatic
+53 verbose gentlyRm vacuuming /usr/local/lib/node_modules/floomatic
+54 verbose tar unpack /Users/annabelconsilvio/.npm/floomatic/0.4.7/package.tgz
+55 verbose tar unpacking to /usr/local/lib/node_modules/floomatic
+56 verbose gentlyRm vacuuming /usr/local/lib/node_modules/floomatic
+57 silly gunzTarPerm modes [ '755', '644' ]
+58 error tar.unpack untar error /Users/annabelconsilvio/.npm/floomatic/0.4.7/package.tgz
+59 verbose unlock done using /Users/annabelconsilvio/.npm/_locks/floomatic-b4607c870c9ee6da.lock for /usr/local/lib/node_modules/floomatic
+60 verbose fstream_path /usr/local/lib/node_modules/floomatic
+61 verbose fstream_type Directory
+62 verbose fstream_class DirWriter
+63 verbose stack Error: EACCES, mkdir '/usr/local/lib/node_modules/floomatic'
+63 verbose stack     at Error (native)
+64 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23
+64 verbose fstream_stack /usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53
+64 verbose fstream_stack FSReqWrap.oncomplete (fs.js:99:15)
+65 verbose cwd /Users/annabelconsilvio/Dropbox/Olin/FreshmanYear/SoftDes/SoftDesSp15/mini-project3
+66 error Darwin 14.1.0
+67 error argv "node" "/usr/local/bin/npm" "install" "-g" "floomatic"
+68 error node v0.12.0
+69 error npm  v2.5.1
+70 error path /usr/local/lib/node_modules/floomatic
+71 error code EACCES
+72 error errno -13
+73 error Error: EACCES, mkdir '/usr/local/lib/node_modules/floomatic'
+73 error     at Error (native)
+73 error  { [Error: EACCES, mkdir '/usr/local/lib/node_modules/floomatic']
+73 error   errno: -13,
+73 error   code: 'EACCES',
+73 error   path: '/usr/local/lib/node_modules/floomatic',
+73 error   fstream_type: 'Directory',
+73 error   fstream_path: '/usr/local/lib/node_modules/floomatic',
+73 error   fstream_class: 'DirWriter',
+73 error   fstream_stack:
+73 error    [ '/usr/local/lib/node_modules/npm/node_modules/fstream/lib/dir-writer.js:36:23',
+73 error      '/usr/local/lib/node_modules/npm/node_modules/mkdirp/index.js:46:53',
+73 error      'FSReqWrap.oncomplete (fs.js:99:15)' ] }
+74 error Please try running this command again as root/Administrator.
+75 verbose exit [ -13, true ]
+76 verbose unbuild lib/node_modules/floomatic
+77 verbose gentlyRm vacuuming /usr/local/lib/node_modules/floomatic
