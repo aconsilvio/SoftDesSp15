@@ -1,0 +1,8 @@
+Machine Learning
+Annabel Consilvio
+Questions
+
+1. The general trend of the curve is upward, almost quadratically.  The higher of the presentation of data that is trained on, the better the results are.
+2. The curve is noiser at some of the lower precentages - 15%, 20%, etc.
+3. It is possible to get a mostly smooth curve at some lower value trials - 6,7,8, but anything 10 and greater gives a very smooth curve.
+4. When C=10**-1, you get a perfectly linear line.  When C=10**-15, you get a more curved line than C=10**-10.
