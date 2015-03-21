@@ -1,6 +1,6 @@
 Machine Learning
 Annabel Consilvio
-Questions
+Questions Assignment
 
 1. The general trend of the curve is upward, almost quadratically.  The higher of the presentation of data that is trained on, the better the results are.
 2. The curve is noiser at some of the lower precentages - 15%, 20%, etc.

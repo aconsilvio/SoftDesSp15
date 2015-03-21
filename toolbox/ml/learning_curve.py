@@ -1,5 +1,7 @@
-""" Exploring learning curves for classification of handwritten digits 
-By Annabel Consilvio"""
+""" 
+Exploring learning curves for classification of handwritten digits 
+By Annabel Consilvio
+"""
 
 import matplotlib.pyplot as plt
 import numpy
@@ -7,6 +9,7 @@ from sklearn.datasets import *
 from sklearn.cross_validation import train_test_split
 from sklearn.linear_model import LogisticRegression
 
+#starter code
 data = load_digits()
 print data.DESCR
 num_trials = 10
