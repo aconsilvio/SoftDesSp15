@@ -38,7 +38,9 @@ def build_random_function(min_depth, max_depth):
     else:
         lista = [function, build_random_function(min_depth-1, max_depth-1)]
 
-
+    #lista is a cryptic and not very informative variable name. Its tempting to name variables
+    #after data structures, but see if you can come up with a better name! But it's no 
+    #big deal if you can't. 
     return lista 
     
 
@@ -70,6 +72,7 @@ def evaluate_random_function(f, x, y):
         return math.sin(math.pi * evaluate_random_function(f[1:][0], x, y))
     if f[0] == "abs":
         return  abs(evaluate_random_function(f[1:][0], x, y))
+        #f[1:][0] is the equivalent of f[1]!
     if f[0] == "sqrt":
         return  math.sqrt(abs(evaluate_random_function(f[1:][0], x, y)))
     if f[0] == "cos_pi":
@@ -111,6 +114,8 @@ def remap_interval(val, input_interval_start, input_interval_end, output_interva
     c = float(output_interval_start)
     d = float(output_interval_end)
     x = float(val)
+    #for the record, as long as one number involved in the operation is a float, the other
+    #numbers will be casted to a float. So you really only need to cast some numbers to floats.
     difference_val = x - a
     difference_input = b - a
     difference_output = d -c 
@@ -194,6 +199,7 @@ if __name__ == '__main__':
     n = time.time()
     a = 'myart_'
     b = str(n)
+    #pls try to avoid using one letter variable names, even if its temporary and not too hard to follow.
 
     title = a+b
 
